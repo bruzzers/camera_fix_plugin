@@ -27,16 +27,14 @@ project.getTasks().withType(JavaCompile){
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     defaultConfig {
-        targetSdkVersion 31
+        targetSdkVersion 33
         minSdkVersion 21
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
-        // TODO(stuartmorgan): Enable when gradle is updated.
-        // disable 'AndroidGradlePluginVersion'
         disable 'InvalidPackage'
         disable 'GradleDependency'
         baseline file("lint-baseline.xml")
@@ -52,16 +50,16 @@ android {
         unitTests.returnDefaultValues = true
         unitTests.all {
             testLogging {
-               events "passed", "skipped", "failed", "standardOut", "standardError"
-               outputs.upToDateWhen {false}
-               showStandardStreams = true
+                events "passed", "skipped", "failed", "standardOut", "standardError"
+                outputs.upToDateWhen {false}
+                showStandardStreams = true
             }
         }
     }
 }
 
 dependencies {
-    implementation 'androidx.annotation:annotation:1.5.0'
+    compileOnly 'androidx.annotation:annotation:1.1.0'
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.mockito:mockito-inline:4.7.0'
     testImplementation 'androidx.test:core:1.4.0'
