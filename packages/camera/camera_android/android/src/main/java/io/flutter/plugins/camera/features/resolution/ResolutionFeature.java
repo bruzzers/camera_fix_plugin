@@ -235,21 +235,21 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
       return;
     }
 
-    if (Build.VERSION.SDK_INT >= 31) {
+    /*if (Build.VERSION.SDK_INT >= 31) {
       recordingProfile =
           getBestAvailableCamcorderProfileForResolutionPreset(cameraId, resolutionPreset);
       List<EncoderProfiles.VideoProfile> videoProfiles = recordingProfile.getVideoProfiles();
 
       EncoderProfiles.VideoProfile defaultVideoProfile = videoProfiles.get(0);
       captureSize = new Size(defaultVideoProfile.getWidth(), defaultVideoProfile.getHeight());
-    } else {
+    } else {*/
       @SuppressWarnings("deprecation")
       CamcorderProfile camcorderProfile =
           getBestAvailableCamcorderProfileForResolutionPresetLegacy(cameraId, resolutionPreset);
       recordingProfileLegacy = camcorderProfile;
       captureSize =
           new Size(recordingProfileLegacy.videoFrameWidth, recordingProfileLegacy.videoFrameHeight);
-    }
+    //}
 
     previewSize = computeBestPreviewSize(cameraId, resolutionPreset);
   }

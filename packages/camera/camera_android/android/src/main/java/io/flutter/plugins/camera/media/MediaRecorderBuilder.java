@@ -75,7 +75,7 @@ public class MediaRecorderBuilder {
     if (enableAudio) mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
     mediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
 
-    if (Build.VERSION.SDK_INT >= 31) {
+    /*if (Build.VERSION.SDK_INT >= 31) {
       EncoderProfiles.VideoProfile videoProfile = encoderProfiles.getVideoProfiles().get(0);
       EncoderProfiles.AudioProfile audioProfile = encoderProfiles.getAudioProfiles().get(0);
 
@@ -90,7 +90,7 @@ public class MediaRecorderBuilder {
       mediaRecorder.setVideoFrameRate(videoProfile.getFrameRate());
       mediaRecorder.setVideoSize(videoProfile.getWidth(), videoProfile.getHeight());
       mediaRecorder.setVideoSize(videoProfile.getWidth(), videoProfile.getHeight());
-    } else {
+    } else {*/
       mediaRecorder.setOutputFormat(camcorderProfile.fileFormat);
       if (enableAudio) {
         mediaRecorder.setAudioEncoder(camcorderProfile.audioCodec);
@@ -102,7 +102,7 @@ public class MediaRecorderBuilder {
       mediaRecorder.setVideoFrameRate(camcorderProfile.videoFrameRate);
       mediaRecorder.setVideoSize(
           camcorderProfile.videoFrameWidth, camcorderProfile.videoFrameHeight);
-    }
+    //}
 
     mediaRecorder.setOutputFile(outputFilePath);
     mediaRecorder.setOrientationHint(this.mediaOrientation);
