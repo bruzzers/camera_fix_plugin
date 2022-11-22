@@ -91,7 +91,7 @@ public class MediaRecorderBuilder {
       mediaRecorder.setVideoSize(videoProfile.getWidth(), videoProfile.getHeight());
       mediaRecorder.setVideoSize(videoProfile.getWidth(), videoProfile.getHeight());
     } else {*/
-      mediaRecorder.setOutputFormat(camcorderProfile.fileFormat);
+      mediaRecorder.setOutputFormat(encoderProfiles.getRecommendedFileFormat());
       if (enableAudio) {
         mediaRecorder.setAudioEncoder(camcorderProfile.audioCodec);
         mediaRecorder.setAudioEncodingBitRate(camcorderProfile.audioBitRate);
